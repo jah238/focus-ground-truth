@@ -1,18 +1,57 @@
 #setwd("/Users/howellj/Documents/work_web/focus-ground-truth")
 
-q = read.csv("Switchboard Focus Sentences - LMEDS Data (temp).csv", header=T)
-
 library(tidyverse)
 
-is.factor(q$Word)
+q = read.csv("Switchboard Focus Sentences - LMEDS Data (temp).csv", header=T)
 
-q$Word <- factor(q$Word,ordered=TRUE)
-levels(q$Word)
+q <- gather(q,annotation,sum.p,c(sum.p,Switchboard))
 
-data <- q %>% 
-  filter(X == "sw02020") %>% 
-  select(c(X,Word,sum.p)) %>% 
-  spread(Word,c(sum.p))
+filter(q,X == "sw02020") %>% 
+  ggplot(aes(x=Word, y=sum.p,color=annotation)) + geom_line()
+  
+
+
+
+
+data <- q
+colnames(data)[length(data)] <- "sequence"
+data <- filter(q,X == "sw02020")
+data.sum <- select(.data = data,X,Word,sum.p)
+data.SB <- select(.data = data,X,Word,Switchboard)
+data.sum$Word <- droplevels(data.sum$Word)
+data.SB$Word <- droplevels(data.SB$Word)
+levels(data.sum$Word) <- as.character(data.sum$Word)
+levels(data.SB$Word) <- as.character(data.SB$Word)
+  data.sum <- spread(data.sum,c(Word),c(sum.p))
+  data.SB <- spread(data.SB,c(Word),c(Switchboard))
+data <- rbind(data.sum,data.SB)
+data$annotation <- c("Turk","Switchboard")
+
+ggplot(data) +
+  geom_line(mapping=aes)
+  
+    
+?select()
+
+order(data$Word,decreasing)
+sort(data$Word)
+
+?order()
+
+#data <- q %>% 
+# filter(X == "sw02012")
+
+  data <- 
+
+  data
+  
+  ggplot(data=dat, aes(x=time, y=total_bill, group=1)) +
+    geom_line()
+  
+  
+seq(length=nrow(q$Word))
+
+
 
 levels(data$Word,ordered=F)
 
