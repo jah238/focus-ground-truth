@@ -6,8 +6,8 @@ q = read.csv("Switchboard Focus Sentences - LMEDS Data (temp).csv", header=T)
 
 q <- gather(q,annotation,sum.p,c(sum.p,Switchboard))
 
-filter(q,X == "sw02020") %>% 
-  ggplot(aes(x=Word, y=sum.p,color=annotation)) + geom_line()
+q <- filter(q,X == "sw02020")
+  ggplot(q, aes(x=Word, y=sum.p,color=annotation)) + geom_line()
   
 
 
