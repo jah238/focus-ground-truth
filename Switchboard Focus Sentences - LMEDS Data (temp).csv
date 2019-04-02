@@ -1,5 +1,5 @@
-StimulusID,,,,,,,,Word,sum.p,A12YM8XYCDEA3.p,A2C0QNEIOSKAV5.p,A3SKEW89V5S0DI.p,A70L26UXLTGLC.p,AVXEDARJC5HLU.p,Switchboard Kontrast
-StimulusID,,,,,,,,Word,sum.p,t1.p,t2.p,t3.p,t4.p,t5.p,Official Judgement
+StimulusID,,,,,,,,Word,sum.p,A12YM8XYCDEA3.p,A2C0QNEIOSKAV5.p,A3SKEW89V5S0DI.p,A70L26UXLTGLC.p,AVXEDARJC5HLU.p,Switchboard
+
 s_01,sw02020,sw02020,1,-1,sw02020p,true,minNumSelected=1,well,0.000,0,0,0,0,0,-
 s_01,sw02020,sw02020,1,-1,sw02020p,true,minNumSelected=1,i,0.000,0,0,0,0,0,0
 s_01,sw02020,sw02020,1,-1,sw02020p,true,minNumSelected=1,mostly,0.000,0,0,0,0,0,0
