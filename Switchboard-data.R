@@ -1,9 +1,8 @@
-<<<<<<< HEAD
+
 
 
 d = read.csv("Switchboard Focus Sentences - LMEDS Data (temp).csv",header=T)
 
-=======
 #setwd("/Users/howellj/Documents/work_web/focus-ground-truth")
 
 getwd()
