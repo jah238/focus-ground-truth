@@ -1,5 +1,6 @@
 
 
+##  Testing git on new machine
 
 d = read.csv("Switchboard Focus Sentences - LMEDS Data (temp).csv",header=T)
 
@@ -11,10 +12,9 @@ library(tidyverse)
 
   q = read.csv("Switchboard Focus Sentences - LMEDS Data (temp).csv", header=T)
   q$sequence <- seq(length(q$Word))
-  q <- filter(q,X == "sw02790")
   q <- gather(q,annotation,sum.p,c(sum.p,Switchboard))
-  q$sequence <- factor(q$sequence,ordered = T)
-  ggplot(q, aes(x=as.factor(sequence), y=sum.p, group=annotation)) + geom_line(aes(color=annotation)) + geom_point(aes(color=annotation))
+  q <- filter(q,X == "sw02790")
+  ggplot(q, aes(x=fct_reorder(Word,sequence), y=sum.p, group=annotation)) + geom_line(aes(color=annotation)) + geom_point(aes(color=annotation))
 
   q = read.csv("Switchboard Focus Sentences - LMEDS Data (temp).csv", header=T)
   q$sequence <- seq(length(q$Word))
