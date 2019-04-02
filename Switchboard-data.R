@@ -1,21 +1,29 @@
 
 
-##  Testing git on new machine
-## More testing
-d
-d = read.csv("Switchboard Focus Sentences - LMEDS Data (temp).csv",header=T)
-
-#setwd("/Users/howellj/Documents/work_web/focus-ground-truth")
-
 getwd()
+#setwd("/Users/howellj/Documents/work_web/focus-ground-truth")
+#install.packages("tidyverse")
 
+#load libraries
 library(tidyverse)
 
-  q = read.csv("Switchboard Focus Sentences - LMEDS Data (temp).csv", header=T)
-  q$sequence <- seq(length(q$Word))
-  q <- gather(q,annotation,sum.p,c(sum.p,Switchboard))
-  q <- filter(q,X == "sw02790")
-  ggplot(q, aes(x=fct_reorder(Word,sequence), y=sum.p, group=annotation)) + geom_line(aes(color=annotation)) + geom_point(aes(color=annotation))
+#load data
+q = read.csv("Switchboard Focus Sentences - LMEDS Data (temp).csv", header=T)
+
+#add index column
+q$sequence <- seq(length(q$Word))
+
+#stack sum.p & Switchboard into new column called "annotation"
+q <- gather(q,annotation,sum.p,c(sum.p,Switchboard))
+
+#filter to specific stimulus
+q <- filter(q,X == "sw02790")
+
+#generate plot
+ggplot(q, aes(x=fct_reorder(Word,sequence), y=sum.p, group=annotation)) + geom_line(aes(color=annotation)) + geom_point(aes(color=annotation))
+
+
+######  other miscellaneous code
 
   q = read.csv("Switchboard Focus Sentences - LMEDS Data (temp).csv", header=T)
   q$sequence <- seq(length(q$Word))
