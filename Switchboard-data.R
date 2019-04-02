@@ -1,17 +1,22 @@
 #setwd("/Users/howellj/Documents/work_web/focus-ground-truth")
 
+getwd()
+
 library(tidyverse)
 
-q = read.csv("Switchboard Focus Sentences - LMEDS Data (temp).csv", header=T)
+  q = read.csv("Switchboard Focus Sentences - LMEDS Data (temp).csv", header=T)
+  q$sequence <- seq(length(q$Word))
+  q <- gather(q,annotation,sum.p,c(sum.p,Switchboard))
+  q <- filter(q,X == "sw02790")
+  ggplot(q, aes(x=fct_reorder(Word,sequence), y=sum.p, group=annotation)) + geom_line(aes(color=annotation)) + geom_point(aes(color=annotation))
 
-q <- gather(q,annotation,sum.p,c(sum.p,Switchboard))
-
-q <- filter(q,X == "sw02020")
-  ggplot(q, aes(x=Word, y=sum.p,color=annotation)) + geom_line()
+  q = read.csv("Switchboard Focus Sentences - LMEDS Data (temp).csv", header=T)
+  q$sequence <- seq(length(q$Word))
+  q <- gather(q,annotation,sum.p,c(sum.p,Switchboard))
+  q <- filter(q,X == "sw02790")
+  ggplot(q, aes(x=fct_reorder(Word,sequence), y=sum.p, group=annotation)) + geom_line(aes(color=annotation)) + geom_point(aes(color=annotation))
   
-
-
-
+  
 
 data <- q
 colnames(data)[length(data)] <- "sequence"
@@ -76,3 +81,5 @@ library(reshape)
 #for pitch
 smelt=melt(q,id=c("sum.p"),measure.vars=c("Word"))
 
+q = read.csv("Switchboard Focus Sentences - LMEDS Data (temp).csv", header=T)
+q <- gather(q,annotation,sum.p,c(sum.p,Switchboard))
