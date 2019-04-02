@@ -1,3 +1,8 @@
+
+
+
+d = read.csv("Switchboard Focus Sentences - LMEDS Data (temp).csv",header=T)
+
 #setwd("/Users/howellj/Documents/work_web/focus-ground-truth")
 
 getwd()
@@ -84,3 +89,4 @@ smelt=melt(q,id=c("sum.p"),measure.vars=c("Word"))
 
 q = read.csv("Switchboard Focus Sentences - LMEDS Data (temp).csv", header=T)
 q <- gather(q,annotation,sum.p,c(sum.p,Switchboard))
+>>>>>>> cc8c05a371424787386173e8659b00a765eb932c
